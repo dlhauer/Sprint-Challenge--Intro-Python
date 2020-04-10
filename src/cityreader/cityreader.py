@@ -30,8 +30,8 @@ cities = []
 
 def cityreader(cities=[]):
     with open("cities.csv", newline='') as cities_file:
-        reader = csv.reader(cities_file)
-        for city in reader:
+        reader = list(csv.reader(cities_file))
+        for city in reader[1:]:
             cities.append(City(city[0], city[3], city[4]))
 
     return cities
